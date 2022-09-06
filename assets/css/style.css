@@ -1,0 +1,11 @@
+nav {
+    background-color: red;
+    height: 200px;
+}
+
+.block {
+    background-color: blue;
+    width: 325px;
+    height: 400px;
+    margin: 25px;
+}
