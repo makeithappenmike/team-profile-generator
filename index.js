@@ -4,17 +4,16 @@ class Employee {
         this.id = id;
         this.email = email;
     }
-
-    getName(){
+    getName() {
         console.log(`Name: ${this.name}`);
     };
-    getId(){
+    getId() {
         console.log(`Id: ${this.id}`);
     };
-    getEmail(){
+    getEmail() {
         console.log(`Email: ${this.email}`);
     };
-    getRole(){
+    getRole() {
         console.log(`Role: ${this.role}`);
     };
 }
@@ -23,8 +22,7 @@ class Manager extends Employee {
     constructor(officeNumber) {
         this.officeNumber = officeNumber;
     }
-
-    getRole(){
+    getRole() {
         this.role = "Manager";
         return this.role;
     };
@@ -34,9 +32,10 @@ class Engineer extends Employee {
     constructor(github) {
         this.github = github;
     }
-
-    getGithub();
-    getRole(){
+    getGithub() {
+        console.log(`Github: ${this.github}`);
+    };
+    getRole() {
         this.role = "Engineer";
         return this.role;
     };
@@ -46,8 +45,10 @@ class Intern extends Employee {
     constructor(school) {
         this.school = school;
     }
-    getSchool();
-    getRole(){
+    getSchool() {
+        console.log(`School: ${this.school}`);
+    };
+    getRole() {
         this.role = "Intern";
         return this.role;
     };
