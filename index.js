@@ -158,6 +158,12 @@ function promptInterns() {
         // teamMember = this.response.teamMember;
         // console.log("TM:", teamMember);
 
+        const newEmployee = new Intern(managerName, managerId, managerEmail, role);
+
+        employees.push(newEmployee);
+
+        console.log("PM Employee:", newEmployee);
+
         addTeamMember();
 
     });
