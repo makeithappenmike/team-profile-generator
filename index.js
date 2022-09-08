@@ -1,4 +1,5 @@
 const inquirer = require('inquirer');
+// import inquirer from 'inquirer';
 
 // Create an array of questions for user input
 const initialQuestions = [
@@ -24,9 +25,9 @@ const initialQuestions = [
     },
     {
         type: 'list',
-        name: 'license',
         message: 'Would you like to add another team member?',
-        choices: ['Engineer', 'Intern', 'No, I am done']
+        choices: ['Engineer', 'Intern', 'No, I am done'],
+        name: 'teamMember'
     }
 ];
 
@@ -53,9 +54,9 @@ const employeeQuestions = [
     },
     {
         type: 'list',
-        name: 'license',
         message: 'Would you like to add another team member?',
-        choices: ['Engineer', 'Intern', 'No, I am done']
+        choices: ['Engineer', 'Intern', 'No, I am done'],
+        name: 'teamMember'
     }
 ];
 
@@ -82,11 +83,67 @@ const internQuestions = [
     },
     {
         type: 'list',
-        name: 'license',
         message: 'Would you like to add another team member?',
-        choices: ['Engineer', 'Intern', 'No, I am done']
+        choices: ['Engineer', 'Intern', 'No, I am done'],
+        name: 'teamMember'
     }
 ];
+
+function promptManagers() {
+
+    // Run inquirer
+    inquirer
+    .prompt(initialQuestions)
+    .then((response) => {
+
+        console.log(response);
+
+        // Manager variables
+        const managerName = response.managerName;
+        const managerId = response.managerId;
+        const managerEmail = response.managerEmail;
+        const managerNumber = response.managerNumber;
+        const addTeamMember = response.teamMember;
+
+        // Engineer variables
+        const managerName = response.managerName;
+        const managerId = response.managerId;
+        const managerEmail = response.managerEmail;
+        const managerNumber = response.managerNumber;
+        const addTeamMember = response.teamMember;
+
+        // Intern variables
+        const managerName = response.managerName;
+        const managerId = response.managerId;
+        const managerEmail = response.managerEmail;
+        const managerNumber = response.managerNumber;
+        const addTeamMember = response.teamMember;
+
+    });
+}
+
+// Create a function to initialize app
+function init() {
+    promptManagers();
+}
+
+// Function call to initialize app
+init();
+
+// Create a function to write README file
+function writeToFile(readMe) {
+
+    // Create "Generated" file to retain repo's README.md
+    fs.writeFile("README(GENERATED).md", readMe, (err) => {
+        if (err)
+          console.log(err);
+        else {
+          console.log("File written successfully\n");
+          console.log("The written has the following contents:");
+          console.log(fs.readFileSync("README(GENERATED).md", "utf8"));
+        }
+      });
+}
 
 class Employee {
     constructor(name, id, email) {
