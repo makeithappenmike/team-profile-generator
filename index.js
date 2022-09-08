@@ -1,5 +1,93 @@
 const inquirer = require('inquirer');
 
+// Create an array of questions for user input
+const initialQuestions = [
+    {
+        type: "input",
+        message: "What is the team Manager's name?",
+        name: "managerName"
+    },
+    {
+        type: "input",
+        message: "What is the team Manager's employee ID?",
+        name: "employeeId"
+    },
+    {
+        type: "input",
+        message: "What is the team Manager's email address?",
+        name: "emailAddress"
+    },
+    {
+        type: "input",
+        message: "What is the team Manager's office number?",
+        name: "officeNumber"
+    },
+    {
+        type: 'list',
+        name: 'license',
+        message: 'Would you like to add another team member?',
+        choices: ['Engineer', 'Intern', 'No, I am done']
+    }
+];
+
+const employeeQuestions = [
+    {
+        type: "input",
+        message: "What is the team Engineer's name?",
+        name: "managerName"
+    },
+    {
+        type: "input",
+        message: "What is the Engineer's employee ID?",
+        name: "employeeId"
+    },
+    {
+        type: "input",
+        message: "What is the Engineer's email address?",
+        name: "emailAddress"
+    },
+    {
+        type: "input",
+        message: "What is the Engineer's Github username?",
+        name: "gitHub"
+    },
+    {
+        type: 'list',
+        name: 'license',
+        message: 'Would you like to add another team member?',
+        choices: ['Engineer', 'Intern', 'No, I am done']
+    }
+];
+
+const internQuestions = [
+    {
+        type: "input",
+        message: "What is the Intern's name?",
+        name: "managerName"
+    },
+    {
+        type: "input",
+        message: "What is the Intern's employee ID?",
+        name: "employeeId"
+    },
+    {
+        type: "input",
+        message: "What is the Intern's email address?",
+        name: "emailAddress"
+    },
+    {
+        type: "input",
+        message: "What is the Intern's school?",
+        name: "school"
+    },
+    {
+        type: 'list',
+        name: 'license',
+        message: 'Would you like to add another team member?',
+        choices: ['Engineer', 'Intern', 'No, I am done']
+    }
+];
+
 class Employee {
     constructor(name, id, email) {
         this.name = name;
