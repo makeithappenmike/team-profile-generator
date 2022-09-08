@@ -103,21 +103,21 @@ function promptManagers() {
         const managerId = response.managerId;
         const managerEmail = response.managerEmail;
         const managerNumber = response.managerNumber;
-        const addTeamMember = response.teamMember;
+        const manageraddTeamMember = response.teamMember;
 
         // Engineer variables
-        const managerName = response.managerName;
-        const managerId = response.managerId;
-        const managerEmail = response.managerEmail;
-        const managerNumber = response.managerNumber;
-        const addTeamMember = response.teamMember;
+        const engineerName = response.managerName;
+        const engineerId = response.managerId;
+        const engineerEmail = response.managerEmail;
+        const engineerNumber = response.managerNumber;
+        const engineeraddTeamMember = response.teamMember;
 
         // Intern variables
-        const managerName = response.managerName;
-        const managerId = response.managerId;
-        const managerEmail = response.managerEmail;
-        const managerNumber = response.managerNumber;
-        const addTeamMember = response.teamMember;
+        const internName = response.managerName;
+        const internId = response.managerId;
+        const internEmail = response.managerEmail;
+        const internNumber = response.managerNumber;
+        const internaddTeamMember = response.teamMember;
 
     });
 }
