@@ -31,10 +31,10 @@ const initialQuestions = [
     }
 ];
 
-const employeeQuestions = [
+const engineerQuestions = [
     {
         type: "input",
-        message: "What is the team Engineer's name?",
+        message: "What is the Engineer's name?",
         name: "managerName"
     },
     {
@@ -89,6 +89,7 @@ const internQuestions = [
     }
 ];
 
+// Inital Manager's prompt
 function promptManagers() {
 
     // Run inquirer
@@ -103,23 +104,66 @@ function promptManagers() {
         const managerId = response.managerId;
         const managerEmail = response.managerEmail;
         const managerNumber = response.managerNumber;
-        const manageraddTeamMember = response.teamMember;
+        const teamMember = response.teamMember;
 
-        // Engineer variables
-        const engineerName = response.managerName;
-        const engineerId = response.managerId;
-        const engineerEmail = response.managerEmail;
-        const engineerNumber = response.managerNumber;
-        const engineeraddTeamMember = response.teamMember;
-
-        // Intern variables
-        const internName = response.managerName;
-        const internId = response.managerId;
-        const internEmail = response.managerEmail;
-        const internNumber = response.managerNumber;
-        const internaddTeamMember = response.teamMember;
+        addTeamMember(teamMember);
 
     });
+}
+
+// Engineer prompt
+function promptEngineers() {
+
+    // Run inquirer
+    inquirer
+    .prompt(engineerQuestions)
+    .then((response) => {
+
+        console.log(response);
+
+        // Engineer variables
+        const engineerName = response.engineerName;
+        const engineerId = response.engineerId;
+        const engineerEmail = response.engineerEmail;
+        const engineerNumber = response.engineerNumber;
+        const teamMember = response.teamMember;
+
+        addTeamMember(teamMember);
+
+    });
+}
+
+// Intern prompt
+function promptInterns() {
+
+    // Run inquirer
+    inquirer
+    .prompt(internQuestions)
+    .then((response) => {
+
+        console.log(response);
+
+        // Intern variables
+        const internName = response.internName;
+        const internId = response.internId;
+        const internEmail = response.internEmail;
+        const internNumber = response.internNumber;
+        const teamMember = response.teamMember;
+
+        addTeamMember(teamMember);
+
+    });
+}
+
+// Add team member
+function addTeamMember(teamMember) {
+    if (teamMember === "Engineer") {
+        promptEngineers();
+    } else if (teamMember === "Intern") {
+        promptEngineers();
+    } else {
+        console.log("All done here, let's generate your HTML!");
+    };
 }
 
 // Create a function to initialize app
