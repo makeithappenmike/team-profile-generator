@@ -1,5 +1,4 @@
 const inquirer = require('inquirer');
-// import inquirer from 'inquirer';
 
 // Create an array of questions for user input
 const initialQuestions = [
@@ -22,12 +21,6 @@ const initialQuestions = [
         type: "input",
         message: "What is the team Manager's office number?",
         name: "officeNumber"
-    },
-    {
-        type: 'list',
-        message: 'Would you like to add another team member?',
-        choices: ['Engineer', 'Intern', 'No, I am done'],
-        name: 'teamMember'
     }
 ];
 
@@ -51,12 +44,6 @@ const engineerQuestions = [
         type: "input",
         message: "What is the Engineer's Github username?",
         name: "gitHub"
-    },
-    {
-        type: 'list',
-        message: 'Would you like to add another team member?',
-        choices: ['Engineer', 'Intern', 'No, I am done'],
-        name: 'teamMember'
     }
 ];
 
@@ -80,7 +67,10 @@ const internQuestions = [
         type: "input",
         message: "What is the Intern's school?",
         name: "school"
-    },
+    }
+];
+
+const addTeamMemberQuestions = [
     {
         type: 'list',
         message: 'Would you like to add another team member?',
@@ -104,9 +94,10 @@ function promptManagers() {
         const managerId = response.managerId;
         const managerEmail = response.managerEmail;
         const managerNumber = response.managerNumber;
-        const teamMember = response.teamMember;
+        // teamMember = this.response.teamMember;
+        // console.log("Manager TM:", teamMember);
 
-        addTeamMember(teamMember);
+        addTeamMember();
 
     });
 }
@@ -126,9 +117,10 @@ function promptEngineers() {
         const engineerId = response.engineerId;
         const engineerEmail = response.engineerEmail;
         const engineerNumber = response.engineerNumber;
-        const teamMember = response.teamMember;
+        // teamMember = this.response.teamMember;
+        // console.log("Engineer TM:", teamMember);
 
-        addTeamMember(teamMember);
+        addTeamMember();
 
     });
 }
@@ -148,22 +140,31 @@ function promptInterns() {
         const internId = response.internId;
         const internEmail = response.internEmail;
         const internNumber = response.internNumber;
-        const teamMember = response.teamMember;
+        // teamMember = this.response.teamMember;
+        // console.log("TM:", teamMember);
 
-        addTeamMember(teamMember);
+        addTeamMember();
 
     });
 }
 
 // Add team member
-function addTeamMember(teamMember) {
-    if (teamMember === "Engineer") {
-        promptEngineers();
-    } else if (teamMember === "Intern") {
-        promptEngineers();
-    } else {
-        console.log("All done here, let's generate your HTML!");
-    };
+function addTeamMember() {
+    
+        // Run inquirer
+        inquirer
+        .prompt(addTeamMemberQuestions)
+        .then((response) => {
+        const teamMember = response.teamMember;
+        console.log("ATM TM:", teamMember.toString());
+        if (teamMember === "Engineer") {
+            promptEngineers();
+        } else if (teamMember === "Intern") {
+            promptInterns();
+        } else {
+            console.log("All done here, let's generate your HTML!");
+        };
+    });
 }
 
 // Create a function to initialize app
@@ -174,21 +175,7 @@ function init() {
 // Function call to initialize app
 init();
 
-// Create a function to write README file
-function writeToFile(readMe) {
-
-    // Create "Generated" file to retain repo's README.md
-    fs.writeFile("README(GENERATED).md", readMe, (err) => {
-        if (err)
-          console.log(err);
-        else {
-          console.log("File written successfully\n");
-          console.log("The written has the following contents:");
-          console.log(fs.readFileSync("README(GENERATED).md", "utf8"));
-        }
-      });
-}
-
+// Create Employee class
 class Employee {
     constructor(name, id, email) {
         this.name = name;
@@ -209,6 +196,7 @@ class Employee {
     };
 }
 
+// Create Manager class
 class Manager extends Employee {
     constructor(officeNumber) {
         this.officeNumber = officeNumber;
@@ -219,6 +207,7 @@ class Manager extends Employee {
     };
 }
 
+// Create Engineer class
 class Engineer extends Employee {
     constructor(github) {
         this.github = github;
@@ -232,6 +221,7 @@ class Engineer extends Employee {
     };
 }
 
+// Create Intern class
 class Intern extends Employee {
     constructor(school) {
         this.school = school;
