@@ -95,12 +95,11 @@ function promptManagers() {
         const managerName = response.managerName;
         const managerId = response.employeeId;
         const managerEmail = response.emailAddress;
-        const managerNumber = response.managerNumber;
-        const role = "Manager";
+        const managerNumber = response.officeNumber;
         // teamMember = this.response.teamMember;
         // console.log("Manager TM:", teamMember);
 
-        const newEmployee = new Manager(managerName, managerId, managerEmail, role);
+        const newEmployee = new Manager(managerName, managerId, managerEmail, managerNumber);
 
         employees.push(newEmployee);
 
@@ -125,11 +124,11 @@ function promptEngineers() {
         const engineerName = response.engineerName;
         const engineerId = response.engineerId;
         const engineerEmail = response.engineerEmail;
-        const engineerNumber = response.engineerNumber;
+        const gitHub = response.gitHub;
         // teamMember = this.response.teamMember;
         // console.log("Engineer TM:", teamMember);
 
-        const newEmployee = new Engineer(managerName, managerId, managerEmail, role);
+        const newEmployee = new Engineer(engineerName, engineerId, engineerEmail, gitHub);
 
         employees.push(newEmployee);
 
@@ -154,11 +153,11 @@ function promptInterns() {
         const internName = response.internName;
         const internId = response.internId;
         const internEmail = response.internEmail;
-        const internNumber = response.internNumber;
+        const school = response.school;
         // teamMember = this.response.teamMember;
         // console.log("TM:", teamMember);
 
-        const newEmployee = new Intern(managerName, managerId, managerEmail, role);
+        const newEmployee = new Intern(internName, internId, internEmail, school);
 
         employees.push(newEmployee);
 
@@ -171,7 +170,8 @@ function promptInterns() {
 
 // Add team member
 function addTeamMember() {
-    
+
+        console.log("ATM Employees:", employees);
         // Run inquirer
         inquirer
         .prompt(addTeamMemberQuestions)
