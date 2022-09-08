@@ -79,6 +79,8 @@ const addTeamMemberQuestions = [
     }
 ];
 
+const employees = [];
+
 // Inital Manager's prompt
 function promptManagers() {
 
@@ -91,11 +93,18 @@ function promptManagers() {
 
         // Manager variables
         const managerName = response.managerName;
-        const managerId = response.managerId;
-        const managerEmail = response.managerEmail;
+        const managerId = response.employeeId;
+        const managerEmail = response.emailAddress;
         const managerNumber = response.managerNumber;
         // teamMember = this.response.teamMember;
         // console.log("Manager TM:", teamMember);
+
+        const employee = new Employee(managerName, managerId, managerEmail);
+
+        employees.push(employee);
+
+        console.log("PM Employee:", employee);
+        console.log("PM Employee:", employees);
 
         addTeamMember();
 
@@ -177,10 +186,11 @@ init();
 
 // Create Employee class
 class Employee {
-    constructor(name, id, email) {
+    constructor(name, id, email, role) {
         this.name = name;
         this.id = id;
         this.email = email;
+        this.role = role;
     }
     getName() {
         console.log(`Name: ${this.name}`);
