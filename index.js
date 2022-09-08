@@ -96,15 +96,15 @@ function promptManagers() {
         const managerId = response.employeeId;
         const managerEmail = response.emailAddress;
         const managerNumber = response.managerNumber;
+        const role = "Manager";
         // teamMember = this.response.teamMember;
         // console.log("Manager TM:", teamMember);
 
-        const employee = new Employee(managerName, managerId, managerEmail);
+        const newEmployee = new Manager(managerName, managerId, managerEmail, role);
 
-        employees.push(employee);
+        employees.push(newEmployee);
 
-        console.log("PM Employee:", employee);
-        console.log("PM Employee:", employees);
+        console.log("PM Employee:", newEmployee);
 
         addTeamMember();
 
@@ -128,6 +128,12 @@ function promptEngineers() {
         const engineerNumber = response.engineerNumber;
         // teamMember = this.response.teamMember;
         // console.log("Engineer TM:", teamMember);
+
+        const newEmployee = new Engineer(managerName, managerId, managerEmail, role);
+
+        employees.push(newEmployee);
+
+        console.log("PM Employee:", newEmployee);
 
         addTeamMember();
 
@@ -186,61 +192,65 @@ init();
 
 // Create Employee class
 class Employee {
-    constructor(name, id, email, role) {
-        this.name = name;
+    constructor(employeeName, id, email, role) {
+        this.employeeName = employeeName;
         this.id = id;
         this.email = email;
         this.role = role;
     }
     getName() {
-        console.log(`Name: ${this.name}`);
+        console.log(`Name: ${this.employeeName}`);
     };
     getId() {
         console.log(`Id: ${this.id}`);
     };
     getEmail() {
         console.log(`Email: ${this.email}`);
+        return this.email;
     };
     getRole() {
         console.log(`Role: ${this.role}`);
+        return this.role;
     };
 }
 
 // Create Manager class
 class Manager extends Employee {
-    constructor(officeNumber) {
+    constructor(employeeName, id, email, officeNumber) {
+        super(employeeName, id, email);
         this.officeNumber = officeNumber;
     }
     getRole() {
         this.role = "Manager";
-        return this.role;
+        return "Manager";
     };
 }
 
 // Create Engineer class
 class Engineer extends Employee {
-    constructor(github) {
+    constructor(employeeName, id, email, github) {
+        super(employeeName, id, email);
         this.github = github;
     }
     getGithub() {
         console.log(`Github: ${this.github}`);
+        return this.github;
     };
     getRole() {
-        this.role = "Engineer";
-        return this.role;
+        return "Engineer";
     };
 }
 
 // Create Intern class
 class Intern extends Employee {
-    constructor(school) {
+    constructor(employeeName, id, email, school) {
+        super(employeeName, id, email);
         this.school = school;
     }
     getSchool() {
         console.log(`School: ${this.school}`);
     };
     getRole() {
-        this.role = "Intern";
-        return this.role;
+        return "Intern";
     };
 }
