@@ -99,7 +99,8 @@ function promptManagers() {
         const managerId = response.employeeId;
         const managerEmail = response.emailAddress;
         const managerNumber = response.officeNumber;
-        const role = "Manager";
+        const icon = `<i class="fa fa-coffee" aria-hidden="true"></i>`;
+        const role = icon + " Manager";
         console.log("PM Role", role);
         // teamMember = this.response.teamMember;
         // console.log("Manager TM:", teamMember);
@@ -150,9 +151,8 @@ function promptEngineers() {
         const engineerId = response.employeeId;
         const engineerEmail = response.emailAddress;
         const gitHub = response.gitHub;
-        const role = "Engineer";
-        // teamMember = this.response.teamMember;
-        // console.log("Engineer TM:", teamMember);
+        const icon = `<i class="fa fa-code" aria-hidden="true"></i>`;
+        const role = icon + " Engineer";
 
         const newEmployee = new Engineer(engineerName, engineerId, engineerEmail, role, gitHub);
 
@@ -199,9 +199,8 @@ function promptInterns() {
         const internId = response.employeeId;
         const internEmail = response.emailAddress;
         const school = response.school;
-        const role = "Intern";
-        // teamMember = this.response.teamMember;
-        // console.log("TM:", teamMember);
+        const icon = `<i class="fa fa-graduation-cap" aria-hidden="true"></i>`;
+        const role = icon + " Intern";
 
         const newEmployee = new Intern(internName, internId, internEmail, role, school);
 
@@ -258,6 +257,7 @@ function addTeamMember() {
                 <meta charset="UTF-8">
                 <meta http-equiv="X-UA-Compatible" content="IE=edge">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
                 <link rel="stylesheet" href="./assets/css/style.css">
                 <title>Team Profile Generator</title>
             </head>
