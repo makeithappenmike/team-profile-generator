@@ -122,7 +122,7 @@ function promptManagers() {
             <section class="bottom">
                 <ul>
                     <li>${managerId}</li>
-                    <li>${managerEmail}</li>
+                    <li><a href="mailto:${managerEmail}"></a></li>
                     <li>${managerNumber}</li>
                 </ul>
             </section>
@@ -171,8 +171,8 @@ function promptEngineers() {
             <section class="bottom">
                 <ul>
                     <li>${engineerId}</li>
-                    <li>${engineerEmail}</li>
-                    <li>${gitHub}</li>
+                    <li><a href="mailto:${engineerEmail}"></a></li>
+                    <li><a href="https://github.com/${gitHub}" target="blank"></a></li>
                 </ul>
             </section>
         </section>
@@ -219,7 +219,7 @@ function promptInterns() {
             <section class="bottom">
                 <ul>
                     <li>${internId}</li>
-                    <li>${internEmail}</li>
+                    <li><a href="mailto:${internEmail}"></a></li>
                     <li>${school}</li>
                 </ul>
             </section>
