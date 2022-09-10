@@ -5,7 +5,7 @@ const initialQuestions = [
     {
         type: "input",
         message: "What is the team Manager's name?",
-        name: "managerName"
+        name: "employeeName"
     },
     {
         type: "input",
@@ -28,7 +28,7 @@ const engineerQuestions = [
     {
         type: "input",
         message: "What is the Engineer's name?",
-        name: "managerName"
+        name: "employeeName"
     },
     {
         type: "input",
@@ -51,7 +51,7 @@ const internQuestions = [
     {
         type: "input",
         message: "What is the Intern's name?",
-        name: "managerName"
+        name: "employeeName"
     },
     {
         type: "input",
@@ -89,10 +89,10 @@ function promptManagers() {
     .prompt(initialQuestions)
     .then((response) => {
 
-        console.log(response);
+        console.log("PM Response:", response);
 
         // Manager variables
-        const managerName = response.managerName;
+        const managerName = response.employeeName;
         const managerId = response.employeeId;
         const managerEmail = response.emailAddress;
         const managerNumber = response.officeNumber;
@@ -121,9 +121,9 @@ function promptEngineers() {
         console.log(response);
 
         // Engineer variables
-        const engineerName = response.engineerName;
-        const engineerId = response.engineerId;
-        const engineerEmail = response.engineerEmail;
+        const engineerName = response.employeeName;
+        const engineerId = response.employeeId;
+        const engineerEmail = response.emailAddress;
         const gitHub = response.gitHub;
         // teamMember = this.response.teamMember;
         // console.log("Engineer TM:", teamMember);
@@ -132,7 +132,7 @@ function promptEngineers() {
 
         employees.push(newEmployee);
 
-        console.log("PM Employee:", newEmployee);
+        console.log("PE Employee:", newEmployee);
 
         addTeamMember();
 
@@ -150,9 +150,9 @@ function promptInterns() {
         console.log(response);
 
         // Intern variables
-        const internName = response.internName;
-        const internId = response.internId;
-        const internEmail = response.internEmail;
+        const internName = response.employeeName;
+        const internId = response.employeeId;
+        const internEmail = response.emailAddress;
         const school = response.school;
         // teamMember = this.response.teamMember;
         // console.log("TM:", teamMember);
@@ -161,7 +161,7 @@ function promptInterns() {
 
         employees.push(newEmployee);
 
-        console.log("PM Employee:", newEmployee);
+        console.log("PI Employee:", newEmployee);
 
         addTeamMember();
 
@@ -227,7 +227,6 @@ class Manager extends Employee {
         this.officeNumber = officeNumber;
     }
     getRole() {
-        this.role = "Manager";
         return "Manager";
     };
 }
@@ -238,8 +237,17 @@ class Engineer extends Employee {
         super(employeeName, id, email);
         this.github = github;
     }
+    getName() {
+        console.log(`Name: ${this.employeeName}`);
+    };
+    getId() {
+        console.log(`Id: ${this.id}`);
+    };
+    getEmail() {
+        console.log(`Email: ${this.email}`);
+        return this.email;
+    };
     getGithub() {
-        console.log(`Github: ${this.github}`);
         return this.github;
     };
     getRole() {
@@ -255,6 +263,7 @@ class Intern extends Employee {
     }
     getSchool() {
         console.log(`School: ${this.school}`);
+        return this.school;
     };
     getRole() {
         return "Intern";
