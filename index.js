@@ -1,9 +1,18 @@
 const inquirer = require('inquirer');
 const fs = require("fs");
 
+// Intial Questions
+const addTeamMemberQuestions = [
+    {
+        type: 'list',
+        message: 'Would you like to add another team member?',
+        choices: ['Engineer', 'Intern', 'No, I am done'],
+        name: 'teamMember'
+    }
+];
 
-// Create an array of questions for user input
-const initialQuestions = [
+// Manager Questions
+const managerQuestions = [
     {
         type: "input",
         message: "What is the team Manager's name?",
@@ -26,6 +35,7 @@ const initialQuestions = [
     }
 ];
 
+// Engineer Questions
 const engineerQuestions = [
     {
         type: "input",
@@ -49,6 +59,7 @@ const engineerQuestions = [
     }
 ];
 
+// Intern Questions
 const internQuestions = [
     {
         type: "input",
@@ -72,27 +83,21 @@ const internQuestions = [
     }
 ];
 
-const addTeamMemberQuestions = [
-    {
-        type: 'list',
-        message: 'Would you like to add another team member?',
-        choices: ['Engineer', 'Intern', 'No, I am done'],
-        name: 'teamMember'
-    }
-];
-
-const employees = [];
+// Create HTML Strings array
 const htmlStrings = [];
 
-// Inital Manager's prompt
+// Initial Prompt
+// initialPrompt() {
+    
+// };
+
+// Manager's prompt
 function promptManagers() {
 
     // Run inquirer
     inquirer
     .prompt(initialQuestions)
     .then((response) => {
-
-        console.log("PM Response:", response);
 
         // Manager variables
         const managerName = response.employeeName;
@@ -101,16 +106,11 @@ function promptManagers() {
         const managerNumber = response.officeNumber;
         const icon = `<i class="fa fa-coffee" aria-hidden="true"></i>`;
         const role = icon + " Manager";
-        console.log("PM Role", role);
-        // teamMember = this.response.teamMember;
-        // console.log("Manager TM:", teamMember);
 
+        // Pass into Manager class
         const newEmployee = new Manager(managerName, managerId, managerEmail, role, managerNumber);
 
-        employees.push(newEmployee);
-
-        console.log("PM Employee:", newEmployee);
-
+        // Create HTML String
         const htmlString = `
         <section class="block">
             <section class="top">
@@ -129,6 +129,7 @@ function promptManagers() {
         </section>
         `;
 
+        // Pass HTML STring into HTML Strings array
         htmlStrings.push(htmlString);
 
         addTeamMember();
@@ -154,12 +155,10 @@ function promptEngineers() {
         const icon = `<i class="fa fa-code" aria-hidden="true"></i>`;
         const role = icon + " Engineer";
 
+        // Pass into Engineer class
         const newEmployee = new Engineer(engineerName, engineerId, engineerEmail, role, gitHub);
 
-        employees.push(newEmployee);
-
-        console.log("PE Employee:", newEmployee);
-
+        // Create HTML String
         const htmlString = `
         <section class="block">
             <section class="top">
@@ -178,6 +177,7 @@ function promptEngineers() {
         </section>
         `;
 
+        // Pass HTML STring into HTML Strings array
         htmlStrings.push(htmlString);
         addTeamMember();
 
@@ -202,12 +202,10 @@ function promptInterns() {
         const icon = `<i class="fa fa-graduation-cap" aria-hidden="true"></i>`;
         const role = icon + " Intern";
 
+        // Pass into Intern class
         const newEmployee = new Intern(internName, internId, internEmail, role, school);
 
-        employees.push(newEmployee);
-
-        console.log("PI Employee:", newEmployee);
-
+        // Create HTML String
         const htmlString = `
         <section class="block">
             <section class="top">
@@ -226,6 +224,7 @@ function promptInterns() {
         </section>
         `;
 
+        // Pass HTML STring into HTML Strings array
         htmlStrings.push(htmlString);
         addTeamMember();
 
@@ -235,19 +234,20 @@ function promptInterns() {
 // Add team member
 function addTeamMember() {
 
-        console.log("ATM Employees:", employees);
-
         // Run inquirer
         inquirer
         .prompt(addTeamMemberQuestions)
         .then((response) => {
         const teamMember = response.teamMember;
-        console.log("ATM TM:", teamMember.toString());
+
+        // Handle selection
         if (teamMember === "Engineer") {
             promptEngineers();
         } else if (teamMember === "Intern") {
             promptInterns();
         } else {
+
+            // Generate Index.html file
             console.log("All done here, let's generate your HTML!");
             const entireString = htmlStrings.join('');
             const finalString = `
@@ -292,7 +292,7 @@ function writeToFile(htmlString) {
 
 // Create a function to initialize app
 function init() {
-    promptManagers();
+    initialPrompt();
 }
 
 // Function call to initialize app
