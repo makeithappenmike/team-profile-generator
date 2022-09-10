@@ -371,3 +371,8 @@ class Intern extends Employee {
         return this.role;
     };
 }
+
+module.exports = Employee;
+module.exports = Manager;
+module.exports = Engineer;
+module.exports = Intern;
