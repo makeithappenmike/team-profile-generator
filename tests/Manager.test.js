@@ -11,7 +11,6 @@ describe('Manager', () => {
 
     const manager = new Manager(this.employeeName, this.id, this.email, this.role, this.officeNumber);
 
-    // Assert
     expect(this.employeeName).toEqual("Manager Name");
     expect(this.id).toEqual("1");
     expect(this.email).toEqual("test@test.com");
