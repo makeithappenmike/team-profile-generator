@@ -1,4 +1,6 @@
 const inquirer = require('inquirer');
+const fs = require("fs");
+
 
 // Create an array of questions for user input
 const initialQuestions = [
@@ -80,6 +82,7 @@ const addTeamMemberQuestions = [
 ];
 
 const employees = [];
+const htmlStrings = [];
 
 // Inital Manager's prompt
 function promptManagers() {
@@ -106,6 +109,26 @@ function promptManagers() {
         employees.push(newEmployee);
 
         console.log("PM Employee:", newEmployee);
+
+        const htmlString = `
+        <section class="block">
+            <section class="top">
+                <ul>
+                    <li>${managerName}</li>
+                    <li>${role}</li>
+                </ul>
+            </section>
+            <section class="bottom">
+                <ul>
+                    <li>${managerId}</li>
+                    <li>${managerEmail}</li>
+                    <li>${managerNumber}</li>
+                </ul>
+            </section>
+        </section>
+        `;
+
+        htmlStrings.push(htmlString);
 
         addTeamMember();
 
@@ -137,6 +160,25 @@ function promptEngineers() {
 
         console.log("PE Employee:", newEmployee);
 
+        const htmlString = `
+        <section class="block">
+            <section class="top">
+                <ul>
+                    <li>${engineerName}</li>
+                    <li>${role}</li>
+                </ul>
+            </section>
+            <section class="bottom">
+                <ul>
+                    <li>${engineerId}</li>
+                    <li>${engineerEmail}</li>
+                    <li>${gitHub}</li>
+                </ul>
+            </section>
+        </section>
+        `;
+
+        htmlStrings.push(htmlString);
         addTeamMember();
 
     });
@@ -167,6 +209,25 @@ function promptInterns() {
 
         console.log("PI Employee:", newEmployee);
 
+        const htmlString = `
+        <section class="block">
+            <section class="top">
+                <ul>
+                    <li>${internName}</li>
+                    <li>${role}</li>
+                </ul>
+            </section>
+            <section class="bottom">
+                <ul>
+                    <li>${internId}</li>
+                    <li>${internEmail}</li>
+                    <li>${school}</li>
+                </ul>
+            </section>
+        </section>
+        `;
+
+        htmlStrings.push(htmlString);
         addTeamMember();
 
     });
@@ -176,6 +237,7 @@ function promptInterns() {
 function addTeamMember() {
 
         console.log("ATM Employees:", employees);
+
         // Run inquirer
         inquirer
         .prompt(addTeamMemberQuestions)
@@ -188,8 +250,44 @@ function addTeamMember() {
             promptInterns();
         } else {
             console.log("All done here, let's generate your HTML!");
+            const entireString = htmlStrings.join('');
+            const finalString = `
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <link rel="stylesheet" href="./assets/css/style.css">
+                <title>Team Profile Generator</title>
+            </head>
+            <body>
+                <nav class="nav">
+                    MY TEAM
+                </nav>
+                <section class="main">
+                    ${entireString}
+                </section>
+                <script src="./assets/index.js"></script>
+            </body>
+            </html> 
+            `
+            writeToFile(finalString);
         };
     });
+}
+
+// Create a function to write README file
+function writeToFile(htmlString) {
+
+    // Create "Generated" file to retain repo's README.md
+    fs.writeFile("index.html", htmlString, (err) => {
+        if (err)
+          console.log(err);
+        else {
+          console.log("File written successfully\n");
+        }
+      });
 }
 
 // Create a function to initialize app

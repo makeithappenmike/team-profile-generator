@@ -18,6 +18,7 @@
   "homepage": "https://github.com/makeithappenmike/team-profile-generator#readme",
   "dependencies": {
     "inquirer": "^6.5.2",
-    "jest": "^29.0.2"
+    "jest": "^29.0.2",
+    "jquery": "^3.6.1"
   }
 }

@@ -4,8 +4,17 @@ nav {
 }
 
 .block {
-    background-color: blue;
     width: 325px;
     height: 400px;
     margin: 25px;
+}
+
+.top {
+    background-color: blue;
+    padding: 5px;
+}
+
+.bottom {
+    background-color: red;
+    padding: 5px;
 }
