@@ -96,10 +96,12 @@ function promptManagers() {
         const managerId = response.employeeId;
         const managerEmail = response.emailAddress;
         const managerNumber = response.officeNumber;
+        const role = "Manager";
+        console.log("PM Role", role);
         // teamMember = this.response.teamMember;
         // console.log("Manager TM:", teamMember);
 
-        const newEmployee = new Manager(managerName, managerId, managerEmail, managerNumber);
+        const newEmployee = new Manager(managerName, managerId, managerEmail, role, managerNumber);
 
         employees.push(newEmployee);
 
@@ -125,10 +127,11 @@ function promptEngineers() {
         const engineerId = response.employeeId;
         const engineerEmail = response.emailAddress;
         const gitHub = response.gitHub;
+        const role = "Engineer";
         // teamMember = this.response.teamMember;
         // console.log("Engineer TM:", teamMember);
 
-        const newEmployee = new Engineer(engineerName, engineerId, engineerEmail, gitHub);
+        const newEmployee = new Engineer(engineerName, engineerId, engineerEmail, role, gitHub);
 
         employees.push(newEmployee);
 
@@ -154,10 +157,11 @@ function promptInterns() {
         const internId = response.employeeId;
         const internEmail = response.emailAddress;
         const school = response.school;
+        const role = "Intern";
         // teamMember = this.response.teamMember;
         // console.log("TM:", teamMember);
 
-        const newEmployee = new Intern(internName, internId, internEmail, school);
+        const newEmployee = new Intern(internName, internId, internEmail, role, school);
 
         employees.push(newEmployee);
 
@@ -222,19 +226,19 @@ class Employee {
 
 // Create Manager class
 class Manager extends Employee {
-    constructor(employeeName, id, email, officeNumber) {
-        super(employeeName, id, email);
+    constructor(employeeName, id, email, role, officeNumber) {
+        super(employeeName, id, email, role);
         this.officeNumber = officeNumber;
     }
     getRole() {
-        return "Manager";
+        return this.role;
     };
 }
 
 // Create Engineer class
 class Engineer extends Employee {
-    constructor(employeeName, id, email, github) {
-        super(employeeName, id, email);
+    constructor(employeeName, id, email, role, github) {
+        super(employeeName, id, email, role);
         this.github = github;
     }
     getName() {
@@ -251,14 +255,14 @@ class Engineer extends Employee {
         return this.github;
     };
     getRole() {
-        return "Engineer";
+        return this.role;
     };
 }
 
 // Create Intern class
 class Intern extends Employee {
-    constructor(employeeName, id, email, school) {
-        super(employeeName, id, email);
+    constructor(employeeName, id, email, role, school) {
+        super(employeeName, id, email, role);
         this.school = school;
     }
     getSchool() {
@@ -266,6 +270,6 @@ class Intern extends Employee {
         return this.school;
     };
     getRole() {
-        return "Intern";
+        return this.role;
     };
 }
