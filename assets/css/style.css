@@ -3,10 +3,19 @@ nav {
     height: 200px;
 }
 
+.main {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    
+}
+
 .block {
     width: 325px;
-    height: 400px;
-    margin: 25px;
+    height: 100%;
+    margin: 5px;
+    filter: drop-shadow(2px 2px 2px black);
+    border-radius: 5px;
 }
 
 .top {
