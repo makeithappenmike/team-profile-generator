@@ -122,7 +122,7 @@ function promptManagers() {
             <section class="bottom">
                 <ul>
                     <li>${managerId}</li>
-                    <li><a href="mailto:${managerEmail}"></a></li>
+                    <li><a href="mailto:${managerEmail}">${managerEmail}</a></li>
                     <li>${managerNumber}</li>
                 </ul>
             </section>
@@ -171,8 +171,8 @@ function promptEngineers() {
             <section class="bottom">
                 <ul>
                     <li>${engineerId}</li>
-                    <li><a href="mailto:${engineerEmail}"></a></li>
-                    <li><a href="https://github.com/${gitHub}" target="blank"></a></li>
+                    <li><a href="mailto:${engineerEmail}">${engineerEmail}</a></li>
+                    <li><a href="https://github.com/${gitHub}" target="blank">${gitHub}</a></li>
                 </ul>
             </section>
         </section>
@@ -219,7 +219,7 @@ function promptInterns() {
             <section class="bottom">
                 <ul>
                     <li>${internId}</li>
-                    <li><a href="mailto:${internEmail}"></a></li>
+                    <li><a href="mailto:${internEmail}">${internEmail}</a></li>
                     <li>${school}</li>
                 </ul>
             </section>
@@ -263,7 +263,7 @@ function addTeamMember() {
             </head>
             <body>
                 <nav class="nav">
-                    MY TEAM
+                    My Team
                 </nav>
                 <section class="main">
                     ${entireString}
