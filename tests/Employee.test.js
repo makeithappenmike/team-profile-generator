@@ -1,35 +1,47 @@
 const Employee = require("../index.js");
 
-describe('Employee', () => {
-    it('captures input and pass them to the class', () => {
+  describe('Employee', () => {
+    it('captures the Employee Name', () => {
 
-    this.employeeName = "Employee Name";
-    // this.id = "1";
-    // this.email = "test@test.com";
-    // this.role = "Employee";
+      const employeeName = "Engineer Name";
+      const employee = new Employee(employeeName);
 
-    const manager = new Employee(this.employeeName, this.id, this.email, this.role);
-
-    expect(this.employeeName).toEqual("Employee Name");
-    // expect(this.id).toEqual("1");
-    // expect(this.email).toEqual("test@test.com");
-    // expect(this.role).toEqual("Employee");
+    expect(employee.employeeName).toEqual(employeeName);
     });
   });
 
   describe('Employee', () => {
-    it('captures input and pass them to the class', () => {
+    it('captures the Employee ID', () => {
 
-    // this.employeeName = "Employee Name";
-    this.id = "1";
-    // this.email = "test@test.com";
-    // this.role = "Employee";
+      const employeeName = "Engineer Name";
+      const id = "1";
+      const employee = new Employee(employeeName, id);
 
-    const employee = new Employee(this.employeeName, this.id, this.email, this.role);
+    expect(employee.id).toEqual(id);
+    });
+  });
 
-    // expect(this.employeeName).toEqual("Employee Name");
-    expect(this.id).toEqual("1");
-    // expect(this.email).toEqual("test@test.com");
-    // expect(this.role).toEqual("Employee");
+  describe('Employee', () => {
+    it('captures the Employee Email', () => {
+
+      const employeeName = "Engineer Name";
+      const id = "1";
+      const email = "test@test.com";
+      const employee = new Employee(employeeName, id, email);
+
+    expect(employee.email).toEqual(email);
+    });
+  });
+
+  describe('Employee', () => {
+    it('captures the Employee role', () => {
+
+      const employeeName = "Engineer Name";
+      const id = "1";
+      const email = "test@test.com";
+      const role = "Engineer";
+      const employee = new Employee(employeeName, id, email, role);
+
+    expect(employee.role).toEqual(role);
     });
   });
