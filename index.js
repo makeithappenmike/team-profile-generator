@@ -348,9 +348,6 @@ function init() {
     initialPrompt();
 }
 
-// Function call to initialize app
-init();
-
 // Create Employee class
 class Employee {
     constructor(employeeName, id, email, role) {

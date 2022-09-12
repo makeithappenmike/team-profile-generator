@@ -3,18 +3,37 @@ const Engineer = require("../index.js");
 describe('Engineer', () => {
     it('capture input and pass them to the class', () => {
 
-    this.employeeName = "Engineer Name";
-    this.id = "1";
-    this.email = "test@test.com";
-    this.role = "Engineer";
-    this.gitHub = "GitHub";
+    const employeeName = "Engineer Name";
+    // const id = "1";
+    // const email = "test@test.com";
+    // const role = "Engineer";
+    // const gitHub = "GitHub";
 
-    const manager = new Engineer(this.employeeName, this.id, this.email, this.role, this.gitHub);
+    const engineer = new Engineer(employeeName);
 
-    expect(this.employeeName).toEqual("Engineer Name");
-    expect(this.id).toEqual("1");
-    expect(this.email).toEqual("test@test.com");
-    expect(this.role).toEqual("Engineer");
-    expect(this.gitHub).toEqual("GitHub");
+    expect(engineer.employeeName).toEqual(employeeName);
+    // expect(engineer.id).toEqual("1");
+    // expect(engineer.email).toEqual("test@test.com");
+    // expect(engineer.role).toEqual("Engineer");
+    // expect(engineer.gitHub).toEqual("GitHub");
+    });
+  });
+
+  describe('Engineer', () => {
+    it('capture input and pass them to the class', () => {
+
+    const employeeName = "Engineer Name";
+    const id = "1";
+    // const email = "test@test.com";
+    // const role = "Engineer";
+    // const gitHub = "GitHub";
+
+    const engineer = new Engineer(employeeName, id);
+
+    // expect(engineer.employeeName).toEqual(employeeName);
+    expect(engineer.id).toEqual(id);
+    // expect(engineer.email).toEqual("test@test.com");
+    // expect(engineer.role).toEqual("Engineer");
+    // expect(engineer.gitHub).toEqual("GitHub");
     });
   });
