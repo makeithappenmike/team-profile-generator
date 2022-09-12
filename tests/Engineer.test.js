@@ -1,12 +1,16 @@
 const Engineer = require("../index.js");
 
 describe('Engineer', () => {
-    it('captures the GitHub username', () => {
+  it('captures the Engineers GitHub', () => {
 
-    const gitHub = "GitHub";
-    const engineer = new Engineer("Employee Name", "1", "employee@email.com", "Engineer", gitHub);
+  const employeeName = "Engineer Name";
+  const id = "1";
+  const email = "test@test.com";
+  const role = "Engineer";
+  const github = "GitHub";
+  const engineer = new Engineer(employeeName, id, email, role, github);
 
-    expect(engineer.gitHub).toEqual(gitHub);
-    
-    });
+  expect(engineer.github).toEqual(github);
+
   });
+});

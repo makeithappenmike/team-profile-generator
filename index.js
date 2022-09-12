@@ -346,7 +346,7 @@ function writeToFile(htmlString) {
 // Create a function to initialize app
 function init() {
     initialPrompt();
-}
+} init();
 
 // Create Employee class
 class Employee {
@@ -379,6 +379,9 @@ class Manager extends Employee {
         this.employeeName = employeeName;
         this.officeNumber = officeNumber;
     }
+    getOfficeNumber() {
+        return this.officeNumber;
+    };
     getRole() {
         return this.role;
     };
@@ -390,16 +393,6 @@ class Engineer extends Employee {
         super(employeeName, id, email, role);
         this.github = github;
     }
-    getName() {
-        console.log(`Name: ${this.employeeName}`);
-    };
-    getId() {
-        console.log(`Id: ${this.id}`);
-    };
-    getEmail() {
-        console.log(`Email: ${this.email}`);
-        return this.email;
-    };
     getGithub() {
         return this.github;
     };
