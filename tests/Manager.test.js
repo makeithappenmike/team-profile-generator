@@ -1,20 +1,17 @@
 const Manager = require("../index.js");
 
 describe('Manager', () => {
-    it('capture input and pass them to the class', () => {
+  it('captures the Managers office number', () => {
 
-    this.employeeName = "Manager Name";
-    this.id = "1";
-    this.email = "test@test.com";
-    this.role = "Manager";
-    this.officeNumber = "123-456-7890";
+  const employeeName = "Manager Name";
+  const id = "1";
+  const email = "test@test.com";
+  const role = "Manager";
+  const officeNumber = "Office Number";
+  const manager = new Manager(employeeName, id, email, role, officeNumber);
 
-    const manager = new Manager(this.employeeName, this.id, this.email, this.role, this.officeNumber);
+  expect(manager.officeNumber).toEqual(officeNumber);
 
-    expect(this.employeeName).toEqual("Manager Name");
-    expect(this.id).toEqual("1");
-    expect(this.email).toEqual("test@test.com");
-    expect(this.role).toEqual("Manager");
-    expect(this.officeNumber).toEqual("123-456-7890");
-    });
   });
+});
+``

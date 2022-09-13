@@ -7,10 +7,10 @@ describe('Engineer', () => {
   const id = "1";
   const email = "test@test.com";
   const role = "Engineer";
-  const github = "GitHub";
-  const engineer = new Engineer(employeeName, id, email, role, github);
+  const gitHub = "GitHub";
+  const engineer = new Engineer(employeeName, id, email, role, gitHub);
 
-  expect(engineer.github).toEqual(github);
+  expect(engineer.gitHub).toEqual(gitHub);
 
   });
 });

@@ -48,4 +48,5 @@ const Employee = require("../index.js");
     expect(employee.role).toEqual(role);
 
     });
+
   });

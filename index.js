@@ -1,5 +1,8 @@
 const inquirer = require('inquirer');
 const fs = require("fs");
+const Manager = require("./lib/Manager.js");
+const Engineer = require("./lib/Engineer.js");
+const Intern = require("./lib/Intern.js");
 
 // Intial Questions
 const initialQuestions = [
@@ -347,76 +350,3 @@ function writeToFile(htmlString) {
 function init() {
     initialPrompt();
 } init();
-
-// Create Employee class
-class Employee {
-    constructor(employeeName, id, email, role) {
-        this.employeeName = employeeName;
-        this.id = id;
-        this.email = email;
-        this.role = role;
-    }
-    getName() {
-        console.log(`Name: ${this.employeeName}`);
-    };
-    getId() {
-        console.log(`Id: ${this.id}`);
-    };
-    getEmail() {
-        console.log(`Email: ${this.email}`);
-        return this.email;
-    };
-    getRole() {
-        console.log(`Role: ${this.role}`);
-        return this.role;
-    };
-}
-
-// Create Manager class
-class Manager extends Employee {
-    constructor(employeeName, id, email, role, officeNumber) {
-        super(employeeName, id, email, role);
-        this.employeeName = employeeName;
-        this.officeNumber = officeNumber;
-    }
-    getOfficeNumber() {
-        return this.officeNumber;
-    };
-    getRole() {
-        return this.role;
-    };
-}
-
-// Create Engineer class
-class Engineer extends Employee {
-    constructor(employeeName, id, email, role, github) {
-        super(employeeName, id, email, role);
-        this.github = github;
-    }
-    getGithub() {
-        return this.github;
-    };
-    getRole() {
-        return this.role;
-    };
-}
-
-// Create Intern class
-class Intern extends Employee {
-    constructor(employeeName, id, email, role, school) {
-        super(employeeName, id, email, role);
-        this.school = school;
-    }
-    getSchool() {
-        console.log(`School: ${this.school}`);
-        return this.school;
-    };
-    getRole() {
-        return this.role;
-    };
-}
-
-module.exports = Employee;
-module.exports = Manager;
-module.exports = Engineer;
-module.exports = Intern;

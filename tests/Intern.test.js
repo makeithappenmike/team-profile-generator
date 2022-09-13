@@ -1,20 +1,16 @@
 const Intern = require("../index.js");
 
 describe('Intern', () => {
-    it('capture input and pass them to the class', () => {
+  it('captures the Interns school', () => {
 
-    this.employeeName = "Intern Name";
-    this.id = "1";
-    this.email = "test@test.com";
-    this.role = "Intern";
-    this.school = "School";
+  const employeeName = "Intern Name";
+  const id = "1";
+  const email = "test@test.com";
+  const role = "Intern";
+  const school = "School";
+  const intern = new Intern(employeeName, id, email, role, school);
 
-    const manager = new Intern(this.employeeName, this.id, this.email, this.role, this.school);
+  expect(intern.school).toEqual(school);
 
-    expect(this.employeeName).toEqual("Intern Name");
-    expect(this.id).toEqual("1");
-    expect(this.email).toEqual("test@test.com");
-    expect(this.role).toEqual("Intern");
-    expect(this.school).toEqual("School");
-    });
   });
+});
