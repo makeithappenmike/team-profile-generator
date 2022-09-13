@@ -1,4 +1,4 @@
-const Manager = require("../index.js");
+const Manager = require("../lib/Manager.js");
 
 describe('Manager', () => {
   it('captures the Managers office number', () => {

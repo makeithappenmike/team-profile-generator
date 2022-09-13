@@ -1,4 +1,4 @@
-const Engineer = require("../index.js");
+const Engineer = require("../lib/Engineer");
 
 describe('Engineer', () => {
   it('captures the Engineers GitHub', () => {
